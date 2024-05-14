@@ -10,19 +10,17 @@ namespace ContasApp.Services.Models
         [Required(ErrorMessage = "Informe o nome da conta.")]
         public string? Nome { get; set; }
 
-        [Required(ErrorMessage = "Informe a data da conta.")]
         public DateTime? DataCriacao { get; set; }
 
         [Required(ErrorMessage = "Informe o valor da conta.")]
         public decimal? Valor { get; set; }
 
         [Required(ErrorMessage = "Informe o tipo da conta.")]
-        public TipoConta? Tipo { get; set; }
-
-        [Required(ErrorMessage = "Informe as observações da conta.")]
+        public string? Tipo { get; set; }
+        
         public string? Observacao { get; set; }
 
         [Required(ErrorMessage = "Selecione a categoria da conta.")]
-        public Categorias? Categorias { get; set; }
+        public string? Categoria { get; set; }
     }
 }

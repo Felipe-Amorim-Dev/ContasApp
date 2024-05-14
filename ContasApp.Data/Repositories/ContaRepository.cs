@@ -17,8 +17,8 @@ namespace ContasApp.Data.Repositories
         {
             //Escrevendo o comando SQL.
             var query = @"
-                INSERT INTO CONTA(ID, NOME, DATACRIACAO, VALOR, OBSERVACAO)
-                VALUES(@Id, @Nome, @DataCriacao, @Valor, @Observacao)
+                INSERT INTO CONTA(ID, NOME, DATACRIACAO, TIPO, VALOR, OBSERVACAO, CATEGORIA)
+                VALUES(@Id, @Nome, @DataCriacao, @Tipo, @Valor, @Observacao, @Categoria)
             ";
 
             //Conectando ao banco de dados.
@@ -37,8 +37,10 @@ namespace ContasApp.Data.Repositories
                 SET
                     NOME = @Nome,
                     DATACRIACAO = @DataCriacao,
+                    TIPO = @Tipo,
                     VALOR = @Valor,                    
-                    OBSERVACAO = @Observacao                    
+                    OBSERVACAO = @Observacao,
+                    CATEGORIA = @Categoria
                 WHERE
                     ID = @Id
             ";
@@ -87,8 +89,7 @@ namespace ContasApp.Data.Repositories
         {
             //Escrevendo o comando SQL.
             var query = @"
-                SELECT * FROM CONTA
-                
+                SELECT * FROM CONTA                
             ";
 
             //Conectando ao banco de dados.

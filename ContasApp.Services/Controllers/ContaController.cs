@@ -1,7 +1,9 @@
 ﻿using ContasApp.Data.Entities;
+using ContasApp.Data.Enums;
 using ContasApp.Data.Repositories;
 using ContasApp.Services.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContasApp.Services.Controllers
@@ -25,9 +27,9 @@ namespace ContasApp.Services.Controllers
                     Nome = model.Nome,
                     DataCriacao = DateTime.Now,
                     Valor = model.Valor,
-                    Tipo = model.Tipo.Value,
+                    Tipo = model.Tipo,
                     Observacao = model.Observacao,
-                    Categoria = model.Categoria.Value
+                    Categoria = model.Categoria
                 };
 
                 //Gravando a conta no banco de dados.
@@ -64,9 +66,9 @@ namespace ContasApp.Services.Controllers
                     //atualizar os dados da conta.
                     conta.Nome = model.Nome;
                     conta.Valor = model.Valor;
-                    conta.Tipo = model.Tipo.Value;
+                    conta.Tipo = model.Tipo;
                     conta.Observacao = model.Observacao;
-                    conta.Categoria = model.Categorias.Value;
+                    conta.Categoria = model.Categoria;
 
                     //Gravando no banco de dados.
                     contaRepository.Update(conta);
@@ -80,7 +82,7 @@ namespace ContasApp.Services.Controllers
                 else
                 {
                     return StatusCode(400, new { mensagem = "Produto não encontrado." });
-                }            
+                }
             }
             catch (Exception e)
             {
@@ -90,7 +92,7 @@ namespace ContasApp.Services.Controllers
         }
 
         //Método para Serviço de exclusão de conta.
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [ProducesResponseType(typeof(ContaGetModel), 200)]
         public IActionResult RemoverConta(Guid? id)
         {
@@ -126,8 +128,8 @@ namespace ContasApp.Services.Controllers
         }
 
         //Método para Serviço de consulta de conta.
-        [Route("consultar-produto")]
-        [HttpPost]
+        [Route("consultar-conta")]
+        [HttpGet]
         [ProducesResponseType(typeof(List<ContaGetModel>), 200)]
         public IActionResult ConsultarConta()
         {
@@ -173,7 +175,7 @@ namespace ContasApp.Services.Controllers
                 Valor = conta.Valor,
                 Tipo = conta.Tipo,
                 Observacao = conta.Observacao,
-                Categoria = conta.Categoria.Value
+                Categoria = conta.Categoria
             };
         }
     }
