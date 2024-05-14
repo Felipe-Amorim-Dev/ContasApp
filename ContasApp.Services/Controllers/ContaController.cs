@@ -163,7 +163,7 @@ namespace ContasApp.Services.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         [ProducesResponseType(typeof(List<ContaGetModel>), 200)]
         public IActionResult GetById(Guid? id)
         {
