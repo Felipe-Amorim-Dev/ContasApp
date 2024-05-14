@@ -1,5 +1,4 @@
 ﻿using ContasApp.Data.Entities;
-using ContasApp.Data.Enums;
 using ContasApp.Data.Repositories;
 using ContasApp.Services.Models;
 using Microsoft.AspNetCore.Http;
@@ -163,6 +162,37 @@ namespace ContasApp.Services.Controllers
                 return StatusCode(500, new { e.Message });
             }
         }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(List<ContaGetModel>), 200)]
+        public IActionResult GetById(Guid? id)
+        {
+            try
+            {
+                var contaRepository = new ContaRepository();
+                var conta = contaRepository.GetById(id);
+
+                if (conta != null)
+                {                    
+                    //Copiando os dados da conta para a classe Conta.
+                    var result = ContaToModel(conta);
+
+                    //Retornando o código 200 (OK)
+                    return StatusCode(200, result);
+                }
+                else
+                {
+                    //Retornando o código de erro 400 (Bad Request).
+                    return StatusCode(400, new { mensagem = "Conta não encontrado." });
+                }
+            }
+            catch (Exception e)
+            {
+                //Retornando código de erro 500 (Internal server error).
+                return StatusCode(500, new { e.Message });
+            }
+        }
+
 
         //Método auxiliar para copiar os dados de um objeto da classe conta para um objeto ContaGetModel.
         private ContaGetModel ContaToModel(Conta conta)

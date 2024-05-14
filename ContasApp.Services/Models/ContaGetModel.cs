@@ -1,5 +1,4 @@
-﻿using ContasApp.Data.Enums;
-
+﻿
 namespace ContasApp.Services.Models
 {
     public class ContaGetModel
