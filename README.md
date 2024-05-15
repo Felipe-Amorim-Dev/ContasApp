@@ -6,7 +6,7 @@
 ![image](https://img.shields.io/badge/Version-8-ffbc00)
 
 <p>Esta é uma aplicação construída em .NET Core para gerenciamento de Contas a pagar e receber. A aplicação permite realizar operações CRUD (Criar, Ler, Atualizar, Deletar) em uma base de dados CONTAS utilizando o DAPPER para interação com o banco de dados.</p>
-<h3><a href="https://github.com/Felipe-Amorim-Dev/ContasWebp">Link do Front-End</a></h3>
+<h3><a href="https://github.com/Felipe-Amorim-Dev/ContasWeb">Link do Front-End</a></h3>
 
 <h2>Estrutura do Projeto</h2>
 
