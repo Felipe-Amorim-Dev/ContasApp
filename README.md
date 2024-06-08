@@ -21,7 +21,7 @@
     
     HTTP POST - CadastrarConta: Método para cadastro de conta.
     HTTP PUT - AtualizarConta: Método para atualizar a conta.
-    HTTP DELETE - RemoverConta: Método para exclusção de conta.
+    HTTP DELETE - RemoverConta: Método para exclusão de conta.
     HTTP GET - ConsultarConta: Método para consultar todas as contas.    
 </li>
 
@@ -35,7 +35,7 @@
 </ul>
 
 <h3>Camada de dados (Data Layer)</h3>
-<p>Nesta camada estão localizado as Entities (Entidades), o Repositories (Repositórios), a Settings(Configuração) e os Enums:</p>
+<p>Nesta camada estão localizados as Entities (Entidades), o Repositories (Repositórios), a Settings(Configuração) e os Enums:</p>
 
 
 <ul>
@@ -65,13 +65,13 @@ Os métodos da conta são:
 </li>
 
 <li><h4>Enums</h4>
-    Enums representão um conjunto de código fixos de valores.
+    Enums representam um conjunto de código fixos de valores.
 
     No Projeto existem dois Enums, TipoConta e Categorias.    
 </li>
 
 <li><h4>ContaRepository</h4>
-    Na camada de Repositorio estão as implementações das operações de CRUD, que usa comandos SQL, que através do SqlServerSettings acessa o banco de dados.    
+    Na camada de Repositório estão as implementações das operações de CRUD, que usa comandos SQL, que através do SqlServerSettings acessa o banco de dados.    
 
 Operações: 
 
@@ -80,7 +80,7 @@ Operações:
 </li>
 
 <li><h4>SqlServerSettings</h4>
-    Na camada settings cria o método para conexção com o banco de dados atraves da connection String.
+    Na camada settings cria o método para conexão com o banco de dados através da connection String.
     
 </li>
 </ul>
@@ -90,8 +90,8 @@ Operações:
 <p>Para executar o projeto, você deve ter o Visual Studio 2022 devidamente instalado.</p>
 <p>O projeto foi desenvolvido em C# .NET CORE versão 8.</p>
 <p>
-Para a Criação do banco de dados foi utilizada a blibioteca do DAPPER.
-Deve ser instalado na camada de Data (ContasApp.Data) as seguintes blibiotecas:
+Para a Criação do banco de dados foi utilizada a biblioteca do DAPPER.
+Deve ser instalado na camada de Data (ContasApp.Data) as seguintes bibliotecas:
 <ul>
 <li>
 DAPPER
@@ -102,7 +102,7 @@ System.Data.SqlClient
 </ul>
 </p>
 
-Depois de instalada as blibiotecas devemos criar as tabelas no banco de dados:
+Depois de instalada as bibliotecas devemos criar as tabelas no banco de dados:
 
 SCRIPT SQL:
 
